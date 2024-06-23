@@ -41,10 +41,10 @@ quantization_config = BitsAndBytesConfig(
     bnb_4bit_use_double_quant=True,
 )
 
-model_name = "taide/Llama3-TAIDE-LX-8B-Chat-Alpha1"
-
-#from huggingface_hub import login
-#login() # https://huggingface.co/settings/tokens
+#model_name = "taide/Llama3-TAIDE-LX-8B-Chat-Alpha1"
+model_name = "meta-llama/Meta-Llama-3-8B-Instruct"
+from huggingface_hub import login
+login() # https://huggingface.co/settings/tokens
 
 llm = HuggingFaceLLM(
     model_name=model_name,
@@ -62,8 +62,8 @@ llm = HuggingFaceLLM(
 # BAAI/bge-small-en-v1.5
 # GanymedeNil/text2vec-large-chinese
 
-#lc_embed_model = HuggingFaceEmbeddings(model_name=BAAI/bge-small-en-v1.5") # For English
-lc_embed_model = HuggingFaceEmbeddings(model_name="GanymedeNil/text2vec-large-chinese") # For Chinese
+lc_embed_model = HuggingFaceEmbeddings(model_name=BAAI/bge-small-en-v1.5") # For English
+#lc_embed_model = HuggingFaceEmbeddings(model_name="GanymedeNil/text2vec-large-chinese") # For Chinese
 embed_model = LangchainEmbedding(lc_embed_model)
 
 
